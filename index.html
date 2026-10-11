@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tools X Gaming</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#080d1b;color:white}
+header{background:#111a30;padding:22px 12px;text-align:center;border-bottom:2px solid #38bdf8}
+header h1{color:#38bdf8;margin:0;font-size:26px}
+nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:16px}
+nav a{color:white;text-decoration:none}
+.hero{text-align:center;padding:55px 18px 35px}
+.hero h2{font-size:34px;color:#38bdf8}
+.hero p{color:#cbd5e1;line-height:1.7}
+section{padding:24px 16px;max-width:700px;margin:auto}
+h3{color:#38bdf8}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#111a30;border:1px solid #263651;border-radius:12px;padding:18px 10px;text-align:center}
+.card p{font-size:14px;color:#cbd5e1}
+button{background:#38bdf8;border:0;border-radius:8px;padding:12px;font-weight:bold}
+input,textarea{width:100%;padding:12px;margin:7px 0 14px;border-radius:7px;border:1px solid #334155;background:#111a30;color:white}
+a{color:#38bdf8}
+footer{text-align:center;background:#111a30;padding:22px;color:#cbd5e1}
+@media(max-width:350px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>FREE TOOLS X GAMING</h1><p>Free Tools • Gaming Tips</p></header>
+<nav><a href="#home">Home</a><a href="#about">About</a><a href="#tools">Tools</a><a href="#gaming">Gaming</a><a href="#contact">Contact</a></nav>
+<div class="hero" id="home">
+<h2>Welcome, Gamers!</h2>
+<p>Free online tools and gaming tips in one place.<br>مفت ٹولز اور گیمنگ ٹپس ایک ہی جگہ۔</p>
+<button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Explore Tools</button>
+</div>
+<section id="about"><h3>About Us | ہمارے بارے میں</h3><p>We share useful free tools and gaming guides.<br>ہم مفید مفت ٹولز اور گیمنگ گائیڈز فراہم کرتے ہیں۔</p></section>
+<section id="tools"><h3>Free Tools | مفت ٹولز</h3><div class="cards">
+<div class="card"><h4>🔢 Word Counter</h4><p>Count words in your text.</p><button onclick="wordTool()">Open Tool</button></div>
+<div class="card"><h4>🔗 QR Generator</h4><p>Create a QR code for a link.</p><button onclick="qrTool()">Open Tool</button></div>
+</div><div id="toolbox"></div></section>
+<section id="gaming"><h3>Free Fire Gaming 🎮</h3><div class="cards">
+<div class="card"><h4>🎯 Sensitivity Tips</h4><p>Learn drag-headshot basics.</p></div>
+<div class="card"><h4>🏆 Gaming Guide</h4><p>Improve your gameplay with practice.</p></div>
+</div></section>
+<section id="contact"><h3>Contact Us | رابطہ</h3><p>Message us on WhatsApp.</p>
+<form onsubmit="sendMessage(event)"><label>Your name / آپ کا نام</label><input id="name" required placeholder="Enter your name"><label>Message / پیغام</label><textarea id="message" required placeholder="Write your message"></textarea><button type="submit">Send on WhatsApp</button></form>
+<p><a href="https://www.facebook.com/" target="_blank">Facebook</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a> | <a href="https://www.youtube.com/" target="_blank">YouTube</a></p></section>
+<footer>© 2026 Free Tools X Gaming</footer>
+<script>
+function wordTool(){document.getElementById('toolbox').innerHTML='<h3>Word Counter</h3><textarea id="words" placeholder="Type or paste text here"></textarea><p id="count">Words: 0</p><button onclick="document.getElementById(\'count\').textContent=\'Words: \'+(document.getElementById(\'words\').value.trim()?document.getElementById(\'words\').value.trim().split(/\\s+/).length:0)">Count Words</button>'}
+function qrTool(){document.getElementById('toolbox').innerHTML='<h3>QR Code</h3><p>Enter a website link to create a QR code.</p><input id="qrurl" placeholder="https://example.com"><button onclick="makeQR()">Create QR</button><div id="qrresult"></div>'}
+function makeQR(){let u=document.getElementById('qrurl').value.trim();if(!u){alert('Please enter a link');return}document.getElementById('qrresult').innerHTML='<p>Your QR code:</p><img alt="QR code" width="200" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(u)+'">'}
+function sendMessage(e){e.preventDefault();let n=document.getElementById('name').value;let m=document.getElementById('message').value;window.open('https://wa.me/923001234567?text='+encodeURIComponent('Name: '+n+'\nMessage: '+m),'_blank')}
+</script>
+</body>
+</html>
